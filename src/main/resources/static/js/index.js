@@ -28,21 +28,35 @@ $(function(){
 
 function nav_click()
 {
-    $(".nav-item.active,.dropdown.active,.dropdown-menu>li").each(function(){
+    $(".nav-item.active,.dropdown,.dropdown-menu>li").each(function(){
         $($(this).children('a').hasClass("active")).hide();
         $($(this).children("ul").children("li").children('a').data("href")).hide();
         $($(this).children('a').data("href")).hide();
         $(this).removeClass("active");
       });
-    
-    
 }
 //test
+
+    $(".navbar-nav>.dropdown").click(function (){
+        nav_click();
+        $("#Journals").fadeIn();
+        console.log(this);
+    })
+
+    $(".dropdown-menu>li").on("click",function (e) {
+        e.stopPropagation();  //防止向父节点
+        nav_click();
+        $($(this).parents("li")).addClass("active");
+        $($(this).children('a').data("href")).fadeIn();
+        document.getElementsByTagName("title")[0].innerText=this.innerText.trim()+ " - YGWG ";
+
+
+    })
 
 
 $(".nav-item").click(function(){
     nav_click();
-    $("#news").hide();
+    $("#Events").hide();
     $(this).addClass("active");
     $($(this).children('a').data("href")).fadeIn();
   
@@ -55,22 +69,13 @@ $(".nav-item").click(function(){
 });
 
 
-$(".dropdown-menu>li").click(function(){
-    nav_click();
-    $($(this).parents("li")).addClass("active");
-    $($(this).children('a').data("href")).fadeIn();
-    document.getElementsByTagName("title")[0].innerText=this.innerText.trim()+ " - MGSC ";
-});
 
-function newsjunmp(){
-    $("#drpd-active").addClass("active");
-    $("#News").fadeIn(); 
 
-}
+
 $(".home-ha").click(function(){
     jump();
-    newsjunmp();
-    $(this).trigger("click");
+    // $($("#Events").parent("li")).addClass("active");
+    $("#everntslink").addClass("active");
 });
 
 
@@ -84,60 +89,18 @@ $(".dropdown-menu").click(function(){
     $(this).hide();
 })
 
-function isPwdvalidate(str){
-    //判断密码是否符合规则
-    if (/^.*?[\d]+.*$/.test(str) && /^.*?[a-z].*$/.test(str) && str.length>7) {
-
-      return true;
-
-    } else {
-        return false;
-    }
-    // if (/\d/.test(str)){ //匹配数字
-    //     if (/[a-z]/.test(str)) level++//如果有小写a-z，密码强度++
-    //     if (/[A-Z]/.test(str)) level++//匹配大写A-Z
-    //     if (str.length > 10) level++//密码长度是否大于10
-    //     if (/[\.\~\@\#\$\%\^\&\*]/.test(str)) level++//匹配特殊字符
-    //
-    // }
-    //     //匹配数字
-
-}
-
-function isEmpty(str){
-    if(str==null||str.trim()=="")
-      return 1;
-    return 0;
-}
-
-function isEmail(str) {
-    if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(str)) {
-        return false; }
-    else {
-        return true;}
-}
-
-
-
 function  jump(){
     //home新闻跳转
     $($(".nav-item").children('a').data("href")).each(function () {
         $("#Home").hide();
         $("#nav1").removeClass("active");
+
+        $("#Events").fadeIn();
     });
-    $($(".nav-item").children('a').data("href")).each(function () {
-        $("#news").fadeIn();    
-    });
+
 }
 
-$(".listgroup-li").click(function(){
-    $(".listgroup-li.active").each(function(){
-        $(this).removeClass("active");
-        $($(this).children('a').data("href")).hide();
-    });
-    $(this).addClass("active");
-    $($(this).children('a').data("href")).fadeIn();
-});
+
 
 
 
@@ -181,118 +144,12 @@ $(".listgroup-li").click(function(){
                 function () {
                 });
 
-            document.getElementById("successfulcontactus").innerHTML = " Sucessfully submitted Please Wait we will get back to you";
+            document.getElementById("successfulcontactus").innerHTML = " Sucessfully submitted, Please Wait we will get back to you";
             console.log("sending contactus");
         }
 
     })
-function contactUs() {
 
-
-}
-
-
-
-
-/* //百度地图
-//创建和初始化地图函数：
-function initMap(){
-    createMap();//创建地图
-    setMapEvent();//设置地图事件
-    addMapControl();//向地图添加控件
-    addMarker();//向地图中添加marker
-}
-
-//创建地图函数：
-function createMap(){
-    var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
-    var point = new BMap.Point(113.6064084336,33.4829666296);//定义一个中心点坐标
-    map.centerAndZoom(point,6);//设定地图的中心点和坐标并将地图显示在地图容器中
-    window.map = map;//将map变量存储在全局
-}
-
-//地图事件设置函数：
-function setMapEvent(){
-    map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
-    map.enableScrollWheelZoom();//启用地图滚轮放大缩小
-    //map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
-    map.enableKeyboard();//启用键盘上下左右键移动地图
-}
-
-//地图控件添加函数：
-function addMapControl(){
-//向地图中添加缩放控件
-    var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
-    map.addControl(ctrl_nav);
-//向地图中添加缩略图控件
-    var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
-    map.addControl(ctrl_ove);
-//向地图中添加比例尺控件
-    var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
-    map.addControl(ctrl_sca);
-}
-
-//标注点数组
-var markerArr = [
-    {title:"Nanjing&nbsp;Normal&nbsp;University",content:"<strong>E-mail:</strong>&nbsp;chenmin0902@163.com<br><strong>Address:</strong>&nbsp;1&nbsp;Wenyuan&nbsp;Road,Nanjing,Jiangsu,China",point:"118.918885|32.114483",isOpen:1,icon:{w:23,h:25,l:46,t:21,x:9,lb:12}},
-    {title:"Xi'an&nbsp;Jiaotong&nbsp;University",content:"<strong>E-mail:</strong>&nbsp;lihegeo@xjtu.edu.cn<br><strong>Address:</strong>&nbsp;28&nbsp;Xianning&nbsp;Road&nbsp;West,Xi'an,Shanxi,China",point:"108.99027|34.25280",isOpen:1,icon:{w:23,h:25,l:46,t:21,x:9,lb:12}}
-];
-//创建marker
-function addMarker(){
-    for(var i=0;i<markerArr.length;i++){
-        var json = markerArr[i];
-        var p0 = json.point.split("|")[0];
-        var p1 = json.point.split("|")[1];
-        var point = new BMap.Point(p0,p1);
-        
-        var marker = new BMap.Marker(point);
-        var iw = createInfoWindow(i);
-        var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x-50,-40)});
-        marker.setLabel(label);
-        map.addOverlay(marker);
-        label.setStyle({
-            borderColor:"#808080",
-            color:"#333",
-            cursor:"pointer"
-        });
-
-        (function(){
-            var index = i;
-            var _iw = createInfoWindow(i);
-            var _marker = marker;
-            _marker.addEventListener("click",function(){
-                this.openInfoWindow(_iw);
-            });
-            _iw.addEventListener("open",function(){
-                _marker.getLabel().hide();
-            })
-            _iw.addEventListener("close",function(){
-                _marker.getLabel().show();
-            })
-            label.addEventListener("click",function(){
-                _marker.openInfoWindow(_iw);
-            })
-            if(!!json.isOpen){
-                label.hide();
-                _marker.openInfoWindow(_iw);
-            }
-        })()
-    }
-}
-//创建InfoWindow
-function createInfoWindow(i){
-    var json = markerArr[i];
-    var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
-    return iw;
-}
-
-initMap();//创建和初始化地图
-
-/* function ac(){
-    $("#nav1").removeClass("active");
-    $("#nav2").addClass("active");
-
-} */
 });
 
 

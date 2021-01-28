@@ -23,6 +23,8 @@ body
   padding:0px;
   margin:0px;
   font-family:lato-light , "Segoe UI", Arial, "Microsoft Yahei", sans-serif;
+	overflow:scroll;
+	overflow-x:hidden;
 }
 .blue-bg{
 	background-color:#1a80b6; /* #117450 */
@@ -40,6 +42,8 @@ body
 	-webkit-animation:white-bg 5s infinite alternate;
 	-o-animation:white-bg 5s infinite alternate;
 }
+
+
 
 
 
@@ -136,7 +140,19 @@ div{
 .lable-p{
 	font-size: 0.8rem;
 	font-weight: bold;
+	white-space: nowrap;
 }
+.newsnav>li>a:hover{
+	color: #1a80b6;
+	font-weight: bolder;
+	background-color: #e7e7e7;
+
+}
+.newsnav>li>a{
+	color: #1a80b6;
+}
+
+
 
 
 
