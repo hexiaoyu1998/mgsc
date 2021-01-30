@@ -25,6 +25,8 @@ $(function(){
     })
 
 
+// $(".newsnav>li").on("click")
+
 
 function nav_click()
 {
@@ -48,7 +50,7 @@ function nav_click()
         nav_click();
         $($(this).parents("li")).addClass("active");
         $($(this).children('a').data("href")).fadeIn();
-        document.getElementsByTagName("title")[0].innerText=this.innerText.trim()+ " - YGWG ";
+        document.getElementsByTagName("title")[0].innerText=this.innerText.trim()+ " - MGSC ";
 
 
     })
@@ -72,11 +74,11 @@ $(".nav-item").click(function(){
 
 
 
-$(".home-ha").click(function(){
-    jump();
-    // $($("#Events").parent("li")).addClass("active");
-    $("#everntslink").addClass("active");
-});
+// $(".home-ha").click(function(){
+//     jump();
+//     // $($("#Events").parent("li")).addClass("active");
+//     $("#everntslink").addClass("active");
+// });
 
 
 /* 下拉菜单悬停  */

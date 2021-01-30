@@ -16,6 +16,7 @@
     <script type="text/javascript" th:src="@{/ref/bootstrap/bootstrap.min.css}"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
 
+
 </head>
  
 <body >
@@ -54,7 +55,7 @@
                         <li class="nav-item"><a class="nav-link" data-href="#AboutUs"> About Us </a></li>
 
 
-                        <li class="nav-item" id="everntslink"> <a class="nav-link" data-href="#Events"> Events </a></li>
+                        <li class="nav-item nav-item-events" id="everntslink"> <a class="nav-link" data-href="#Events"> Events </a></li>
 
                         <li class="nav-item"> <a class="nav-link" data-href="#Awards"> Awards </a>
                         </li>
@@ -65,16 +66,14 @@
                                 <li ><a data-href="#Journals"> Journals </a></li>
                                 <li role="separator" class="divider"></li>
                                 <li ><a data-href="#memberspaper"> Members' Papers </a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a data-href="#specialissue">Special Issue</a></li>
                             </ul>
                         </li>
 
                         <li class="nav-item"> <a class="nav-link" data-href="#JobsOpportunities"> Jobs & Opportunities </a></li>
 
                         <li class="nav-item"> <a class="nav-link" data-href="#JoinUs"> Join Us </a></li>
-
-
-
-
 
                         <li class="nav-item"> <a class="nav-link" data-href="#ContactUs"> Contact Us </a></li>
                         <li class="nav-item"> <a class="nav-link" id="userentrance" th:href="@{log.html}"> Login </a></li>
@@ -136,22 +135,31 @@
           </div>
           
             <!-- latest news -->
-            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1" >
-              <br>
-              <h3 class="cos-strong">Latest News</h3>
-              <hr>
-               
-                <div class="cos-modal" >
-                  <strong class="home-h"><a class="home-ha" data-href="#The-general-election" >The general election of Modeling Geographical Systems Commission (MGSC) of International Geographical Union (IGU)</a><br></strong>
-                  <small class="home-date">September 29,  2020<br><br></small>
-                  <p>The general election of Modeling Geographical Systems Commission (MGSC) of International Geographical
-                      Union (IGU),  was a success. At the invitation of the International Geographical Union,  Professor Chen Min of Nanjing Normal University
-                      will be the chairman of the Modeling Geographical Systems commission. At the same time,  the IGU of MGSC selected a Secretary-General, 
-                      10 steering committee members and 10 Honorary advisory members:<br></p>
-                  <p>The abstract follows: <a class="home-ha" data-href="#The-general-election">(more…)</a></p>
-              </div>
 
+
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1" >
+                <br>
+                <h3 class="cos-strong">Latest News</h3>
+                <hr>
+
+                <div class="cos-modal" >
+                    <strong class="home-h"><a onclick="latestnews_click(this)" class="home-ha" data-href="#The-2nd-national-forum" >The 2nd national forum on geographic modeling and simulation (and the launch ceremony of the training course on domestic geographical analysis models)</a><br></strong>
+                    <small class="home-date">Jan 16th-17th, 2021<br><br></small>
+                    <p>The 2nd national forum on geographic modeling and simulation (and the launch ceremony of the training course on domestic geographical analysis models) was successfully held in Nanjing Normal University during Jan 16th-17th, 2021.<br></p>
+                    <p>The abstract follows: <a class="home-ha" data-href="#The-2nd-national-forum" onclick="latestnews_click(this)">(more…)</a></p>
+                </div>
+                <hr style="border-bottom:3px double grey;">
+                <div class="cos-modal" >
+                    <strong class="home-h"><a onclick="latestnews_click(this)" class="home-ha" data-href="#Minutes-of-the-first" >Minutes of the first board meeting of Modeling Geographical Systems Commission (MGSC)</a><br></strong>
+                    <small class="home-date">Jan 27, 2021<br><br></small>
+                    <p>Prof. Min Check kicked off the meeting by introducing himself, followed by the board members introducing themselves. <br></p>
+                    <p>The abstract follows: <a class="home-ha" data-href="#Minutes-of-the-first" onclick="latestnews_click(this)">(more…)</a></p>
+                </div>
             </div>
+
+
+
+
 
         </div>
 
@@ -533,7 +541,7 @@
                         <hr>
                         <br>
                         <div class="col-md-3 col-xs-12" >
-                            <img class="img-responsive" th:src="@{/img/Members/Manish Kumar.jpg}">
+                            <img class="img-responsive" th:src="@{/img/Members/Manish Kumar.png}">
                             <br>
                         </div>
                         <div class="m-fsz col-md-9 col-xs-12 m-center">
@@ -718,32 +726,240 @@
         <div class="row" id="Events" style="height: 100%">
             <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1" style="padding: 0px">
 
-                <ul class="nav nav-pills nav-stacked  col-md-1  text-center newsnav " id="newsnav" style="font-size: 0.8rem;cursor: pointer;white-space: nowrap">
-                    <li class="active"><a data-href="#2020">2020</a></li>
-                    <li style="cursor: not-allowed"><a data-href="#4">2021</a></li>
-                    <li style="cursor: not-allowed"><a data-href="#">2022</a></li>
-                </ul>
+                        <ul class="nav nav-pills nav-stacked newsnav col-md-1 " id="newsnav" style="font-size: 0.8rem;cursor: pointer;white-space: nowrap">
+                            <li id="2020news" class="active" onclick="newsnav_click(this)"><a data-href="#2020" >2020</a></li>
+                            <li id="2021news" onclick="newsnav_click(this)"><a data-href="#2021">2021</a></li>
+                            <li  style="cursor: not-allowed"><a data-href="#">2022</a></li>
+                        </ul>
+                <div class="col-md-10  col-xs-11 col-sm-10" style="margin-left:1.5%;" >
+                    <div id="2021">
+                        <div id="The-2nd-national-forum" class="cos-modal">
+                            <strong class="home-h">The 2nd national forum on geographic modeling and simulation (and the launch ceremony of the training course on domestic geographical analysis models)</strong><br>
+                            <small class="home-date">Jan 16th-17th, 2021<br></small>
+                            <hr>
+                            <p> &nbsp;&nbsp;&nbsp;&nbsp;The 2nd national forum on geographic modeling and simulation (and the launch ceremony of the training course on domestic
+                                geographical analysis models) was successfully held in Nanjing Normal University during Jan 16th-17th, 2021. This forum
+                                was mainly organized by Key Laboratory of the Virtual Geographic Environment, Ministry of Education of PRC and School of Geography,
+                                Nanjing Normal University with several co-organizers including the Geographical Society of China (GSC), China Society of Natural
+                                Resources (CSNR), China Association for Geospatial Information Society (CAGIS), Chinese National Committee of International Society
+                                for Digital Earth (ISDE), International Environmental Modelling and Software Society (iEMSs), Modeling Geographical Systems Commission
+                                of International Geographical Union (IGU), Commission on Geospatial Analysis and Modeling of International Cartographic Association (ICA),
+                                Young Geographer Working Group of Asian Geographical Association (AGA), Jiangsu Center for Collaborative Innovation in Geographical Information
+                                Resource Development and Application, and Yangtze River Delta State Sub-center of National Earth System Science Data Center. Due to the
+                                prevention and control measures of COVID-2019, the forum was synchronously conducted in the onsite and offsite way with the support of
+                                Tencent Meeting, ZOOM, and Bilibili Live. <br></p>
+
+                            <div style="margin-top: 2%;margin-bottom: 2%;" >
+                                <img th:src="@{/img/Events/The-2nd-national-forum-1.png}" align="center" style="height: 80%;">
+                            </div>
+
+                            <p>
+                                &nbsp;&nbsp;&nbsp;&nbsp;The forum began with the opening ceremony hosted by Prof. Linwang Yuan (the Dean of the School of Geography) on
+                                Jan 16th. Prof. Guoxiang Chen, the President of Nanjing Normal University, Prof. R. B. Singh, the
+                                Secretary General and Treasurer of IGU, Prof. Stefan Reis, the President of iEMSs, Prof. Guoyou Zhang,
+                                the Vice President and Secretary General of GSC, Prof. Shengkui Cheng, the President of CSNR, Prof. Zengning Wang,
+                                the Secretary General of CAGIS, and Prof. Jiantao Bi, the Deputy Secretary General of Chinese National Committee
+                                of ISDE were invited to give speeches. Moreover, Prof. Huijun Wang, the Academician of Chinese Academy of Sciences
+                                (CAS), Prof. Huayu Lu, the Vice President of GSC, Prof. Lijie Pu, the Vice President of CSNR, Prof. Guonian Lv,
+                                the Academic Leader of Geography Sciences of Nanjing Normal University and Prof. Min Chen, the Chair of Modeling
+                                Geographical Systems Commission, IGU presented the opening ceremony.<br>
+
+                                &nbsp;&nbsp;&nbsp;&nbsp;During the forum, four Academicians of CAS, Prof. Huijun Wang from Nanjing University of
+                                Information Science & Technology, Prof. Peng Cui from Institute of Mountain Hazards and
+                                Environment (IMHE), CAS, Prof. Bojie Fu from Beijing Normal University, Prof. Jun Xia from Wuhan
+                                University, as well as Prof. Jia Wang from Division I, Department of Earth Sciences, National
+                                Natural Science Foundation of China, Prof. Jinshui Wu from the Institute of Subtropical Agriculture
+                                (ISA), CAS, Prof. Yao Huang from the Institute of Botany, CAS, Prof, Wenjie Dong from School of
+                                Atmospheric Sciences, Sun Yat-sen University, Prof. Bin Wang from Institute of Atmospheric Physics,
+                                CAS, Prof. Xiangzheng Deng from the Institute of Geographic Sciences and Natural Resources Research,
+                                CAS, Prof. Xia Li from School of Geography Sciences, East China Normal University, Prof. Tianxiang
+                                Yue from the Institute of Geographic Sciences and Natural Resources Research, CAS, Prof. Jinfeng Wang
+                                from the Institute of Geographic Sciences and Natural Resources Research, CAS, Prof. Weimin Ju from the
+                                International Institute of Earth System Science, Nanjing University, Prof. Xin Li from the Institute of
+                                Tibetan Plateau Research, CAS, Prof. Chunmiao Zheng from School of Environmental Science and Engineering,
+                                Southern University of Science and Technology, Prof. Dawen Yang from School of Civil Engineering,
+                                Tsinghua University, Prof. Qingyun Duan from College of Hydrology and Water Resources, Hohai University,
+                                and Prof. Chuanhai Wang from College of Hydrology and Water Resources, Hohai University were invited to
+                                attend the forum. They gave presentations to share their work and achievements in the related domains of
+                                geographic modeling and simulation together with Prof. A-Xing Zhu and Prof. Min Chen who are from School
+                                of Geography, Nanjing Normal University. Because of these brilliant presentations, a large number of
+                                researchers and students (Up to 20 thousand people) are attracted to watch the forum live on the web.<br>
+
+                                &nbsp;&nbsp;&nbsp;&nbsp;In addition, the training course on domestic geographical analysis models was launched in this forum.
+                                President Guoxiang Chen, Prof. Huijun Wang, Prof. Huayu Lu, Prof. Lijie Pu, Prof. Zengning Wang
+                                and Prof. Jiantao Bi attended the unveiling ceremony. Then, academician Prof. Xia’s team Jun,
+                                Prof. Qingyun Duan’s team, Prof. Dawen Yang’s team, and Dr. Junzhi Liu were invited as tutors
+                                of the first training course and attended the appointment ceremony.
+                            </p>
+                            <div style="margin-top: 2%;margin-bottom: 2%;" >
+                                <img th:src="@{/img/Events/The-2nd-national-forum-2.jpg}" align="center" style="height: 80%;text-align: center">
+                            </div>
+                            <div style="margin-top: 2%;margin-bottom: 2%;" >
+                                <img th:src="@{/img/Events/The-2nd-national-forum-3.jpg}" align="center" style="height: 80%;text-align: center">
+                            </div>
+                            <p>
+                                &nbsp;&nbsp;&nbsp;&nbsp;The National Geographic Modeling and Simulation Forum, which was founded in 2017 by Nanjing Normal University, aims to explore cutting-edge progress and scientific breakthroughs in the field of geographic modeling and simulation and to provide a unique platform for sharing scientific research achievements, exchange academic ideas, and strengthening academic cooperation among Chinese geographical modelers. Focusing on the development of domestic geographical analysis models and modeling platforms, this forum calls on Chinese geographical modelers to work together to develop domestic geographical analysis models and to build an ecological circle of autonomous model systems for the target of constructing Chinese autonomous geographical simulators and promoting the international researches in the fields of geographic modeling and simulation.
+                            </p>
+                        </div>
+                        <hr style="border-bottom:3px double grey;">
+                        <div id="Minutes-of-the-first" class="cos-modal">
+                            <strong class="home-h">Minutes of the first board meeting of Modeling Geographical Systems Commission (MGSC)</strong><br>
+                            <small class="home-date">Jan 27, 2021 <br></small>
+                            <hr>
+                            <p>
+                                <b>Time: </b>7:00PM, Jan 27, 2021 (Beijing Time)<br>
+                                <b>Venue: </b>Online via Zoom<br>
+                                <b>Attendees(Alphabetically ordered by last name): </b>
+                            <ol>
+                            <li>Prof. Michael Batty</li>
+                            <li>Prof. Min Chen</li>
+                            <li>Prof. Tao Chen</li>
+                            <li>Prof. Christophe Claramunt</li>
+                            <li>Prof. Barry Croke</li>
+                            <li>Prof. Andreas Koch</li>
+                            <li>Dr. Manish Kumar</li>
+                            <li>Prof. Mei-Po Kwan</li>
+                            <li>Prof. Xin Li</li>
+                            <li>Dr. Xintao Liu</li>
+                            <li>Prof. Antonio Paez </li>
+                            <li>Dr. Karel Stanek</li>
+                            <li>Prof. Josef Strobl</li>
+                            <li>Prof. Jinfeng Wang</li>
+                            </ol>
+                            Prof. Min Check kicked off the meeting by introducing himself, followed by the board members introducing themselves. The major topics and discussion are shown below:
+                            <ol>
+                                <li>
+                                    <b>The website of MGSC has been launched at http://www.igu-geomodeling.com. Prof. Min Chen went through the website and introduced the main functions.</b>
+                                <ul>
+                                    <li>Structure of website: logos, main menus, layout, functions, etc. are all agreed.</li>
+                                    <li>Vision of MGSC:
+                                        a)	Christophe Claramunt: we should mention applications to different fields, such as transportation, smart cities, etc.<br>
+                                        b)	Antonio Paez: Perhaps only big domains, like social and physical systems<br>
+                                        c)	Min Chen: Applications may be too many for vision.<br>
+                                    </li>
+                                    <li>
+                                        Publications. Michael Batty: To add CEUS, IJUI and CUS.
+                                    </li>
+                                    <li>
+                                        Papers. Min Chen: To write position papers or collaborative papers.
+                                    </li>
+                                </ul>
+                                </li>
+
+                                <li>
+                                    <b>Four awards by committee meeting: Best Paper, Excellent Young Scholar, Distinguished Scholar and Distinguished Service.</b>
+                                    <ul>
+                                        <li>Mei-Po Kwan: In case no annual conference, the Best Paper Awards should be given to the awarded paper in other events.</li>
+                                        <li>Min Chen: An awards committee will be organized from board members for annual and bi-annual awards. </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b>Membership of MGSC: renew annually, free of charge, list on website.</b>
+                                    <ul>
+                                        <li>Membership. We may need to add corresponding members.</li>
+                                        <li>Mei-Po Kwan: If the membership is free, the fund of MGSC should be guaranteed for the operation and awards.</li>
+                                        <li>Min Chen: Potential projects will be used to support MGSC.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b>Objectives to achieve for four years.</b>
+                                    <ul>
+                                        <li>One conference (regional) every two years;</li>
+                                        <li>Training programmes for developing countries/areas during conference or separately;</li>
+                                        <li>Monthly webinar on different topics (smart cities, etc.) for students and researchers (To be added on website); </li>
+                                        <li>Christophe Claramunt: IJGIS monthly series of webinars
+                                            (good for students), the first one very recent: Gahegan, M., 2020.
+                                            Fourth paradigm GIScience? Prospects for automated discovery and explanation from data.
+                                            International Journal of Geographical Information Science, 34(1), pp.1-21.<br> <a href="https://doi.org/10.1080/13658816.2019.1652304">https://doi.org/10.1080/13658816.2019.1652304</a><br>
+                                            Recorded webinar available at <br><a href="https://www.youtube.com/watch?v=rRSO8fCIw64&feature=youtu.be">https://www.youtube.com/watch?v=rRSO8fCIw64&feature=youtu.be</a></li>
+                                        <li>Mei-Po Kwan: training programme for young scholars (Josef Strobl, Min Chen).</li>
+                                        <li>Xin Li: A webinar of geographic modeling of COVID-19: <br>
+                                            <a href="http://www.covda.tpdc.ac.cn/">http://www.covda.tpdc.ac.cn/</a>
+                                        </li>
+                                        <li>
+                                            Michael Batty : The AUM conference tomorrow in Cambridge UK: <br>
+                                            <a href="https://www.martincentre.arct.cam.ac.uk/conferences/AUM/aum-2020/aum2020-global-workshop">https://www.martincentre.arct.cam.ac.uk/conferences/AUM/aum-2020/aum2020-global-workshop</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b>Events (workshop, conference, etc.) to be organized in 2021.</b>
+                                    <ul>
+                                        <li>
+                                            Conference. Singh: to encourage members to join the training programme, for example, socioeconomic modeling). We may jointly organize the meeting with IGU conference this year (Online or hybrid, or next year in Paris).
+                                        </li>
+                                        <li>
+                                            Manish: Webinar or conference;
+                                        </li>
+                                        <li>Min Chen: At least one online conference this year
+                                        </li>
+                                        <li>
+                                            Min Chen: Call for special issues
+                                            a)	Mei-Po Kwan: how to develop our identity (MGSC) in these events (funded conf., papers in the first or next year)
+                                            b)	Xin Li: Geographic modeling of COVID-19 (workshops) and post-pandemic
+                                            c)	Tao: to summarize and link to post-pandemic.
+                                            d)	Christophe Claramunt: Contact tracing for COVID-19 so related to covid-19 issues
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b>
+                                        Regular meeting for every half year.
+                                    </b>
+                                    Reasonable (Michael Batty, Mei-Po Kwan). To be scheduled in due course.
+                                </li>
+
+                                <li>
+                                    Other related stuff?<br>
+                                    N/A
+                                </li>
+
+                                <li>
+                                    Online photo of all attendees was taken.
+
+                                    <div style="margin-top: 2%;margin-bottom: 2%;" >
+                                        <img th:src="@{/img/Events/Minutes-of-the-first.png}" align="center" style="height: 70%;">
+                                    </div>
+
+                                </li>
+                            </ol>
 
 
-            <div class="col-md-10  col-xs-11    col-sm-10" style="margin-left:1.5%;" >
-                <div id="2020">
-                    <div id="The-general-election" class="cos-modal">
-                        <strong class="home-h">The general election of Modeling Geographical Systems Commission (MGSC) of International Geographical Union (IGU)</strong><br>
-                        <small class="home-date">September 29,  2020<br></small>
-                        <hr>
-<!--                        <p>Chair of MGSC of IGU joined forces to write a position paper on Open Web-Distributed Integrated Geographic Modelling and Simulation to Enable Broader Participation and Applications.<br><br></p>-->
-                        <p>The general election of Modeling Geographical Systems Commission (MGSC) of International Geographical Union (IGU),  was
-                            a success. At the invitation of the International Geographical Union,  Professor Chen Min of Nanjing Normal University
-                            will be the chairman of the Modeling Geographical Systems commission. At the same time,  the IGU of MGSC selected a
-                            Secretary-General,  10 steering committee members and 10 Honorary advisory members. <br></p>
+                            </p>
+
+
+
+                            <br>
+
+                            <p></p>
+                        </div>
+
+
                     </div>
-                    
-                    
+
                 </div>
-                <br><br>
+                <div class=" col-md-10  col-xs-11 col-sm-10" style="margin-left:1.5%;" >
+                        <div id="2020">
+                            <div id="The-general-election" class="cos-modal">
+                                <strong class="home-h">The general election of Modeling Geographical Systems Commission (MGSC) of International Geographical Union (IGU)</strong><br>
+                                <small class="home-date">September 29,  2020<br></small>
+                                <hr>
+                                <p> &nbsp;&nbsp;&nbsp;&nbsp;The general election of Modeling Geographical Systems Commission (MGSC) of International Geographical Union (IGU),  was
+                                    a success. At the invitation of the International Geographical Union,  Professor Chen Min of Nanjing Normal University
+                                    will be the chairman of the Modeling Geographical Systems commission. At the same time,  the IGU of MGSC selected a
+                                    Secretary-General,  10 steering committee members and 10 Honorary advisory members. <br></p>
+                            </div>
+                        </div>
+                        <br><br>
+                </div>
+
 
             </div>
-        </div>
+
         </div>
 
 
@@ -757,6 +973,28 @@
 <!--                    <br><br><br><br><br><br><br><br><br><br><br><br>-->
                 </div>
                
+            </div>
+        </div>
+        <div class="row" id="specialissue" >
+            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+                <h3 class="cos-strong">Special Issue</h3>
+                <hr>
+                <div class="col-xs-12 col-md-12">
+                        <strong style="font-size: 1.2rem"><a  target="_blank" href="https://onlinelibrary.wiley.com/page/journal/14679671/homepage/featured-collections#3">Open Calls for Papers </a></strong><br>
+                        <p>
+                            <strong>Call for Papers: Special Issue, Geomorphometry 2020</strong><br>
+                            Submission Deadline: April 1, 2021<br>
+                            <strong>Special Issue on Virtual Geographic Environment Construction Based on Ubiquitous Geographic Information</strong><br>
+                            Deadline: October 20, 2021
+                        </p>
+
+                    <p>The abstract follows: <a target="_blank" href="https://onlinelibrary.wiley.com/page/journal/14679671/homepage/featured-collections#3">(more…)</a></p>
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
             </div>
         </div>
 
@@ -824,6 +1062,20 @@
                           <label class="stronglabel">Impact Factor</label>: 4.807 (2019) <br>
                           <label class="stronglabel">Description</label>: Environmental Modelling & Software publishes contributions,  in the form of research articles,  reviews,  introductory overviews,  and position papers on advances in the area of environmental modelling and software. Our aim is to improve our capacity to represent,  understand,  predict or manage the behaviour of natural environmental systems,  including air,  water,  and land components,  at all practical scales,  and to communicate those improvements to a wide scientific and professional audience.<br>
                     </div> 
+                </div>
+
+                <div class="col-xs-12 col-md-12">
+                    <hr>
+                    <div class="col-md-3 col-xs-12"   >
+                        <a href="https://www.journals.elsevier.com/computers-environment-and-urban-systems"><img class="img-responsive" th:src="@{/img/Journals/ComputersEnvironmentandUrbanSystems.jpg}" ></a>
+                    </div>
+                    <div class="m-fsz col-md-9 col-xs-12 m-center"  >
+                        <strong><a href="https://www.journals.elsevier.com/computers-environment-and-urban-systems">Computers, Environment and Urban Systems</a></strong><br>
+                        <p>
+                            <label class="stronglabel">ISSN</label>: 0198-9715<br>
+                            <label class="stronglabel">Impact Factor</label>: 4.655 (2019) <br>
+                            <label class="stronglabel">Description</label>: Computers, Environment and Urban Systems is an interdisciplinary journal publishing cutting-edge and innovative computer-based research on urban systems, systems of cities, and built and natural environments , that privileges the geospatial perspective. The journal provides a stimulating presentation of perspectives, research developments, overviews of important new technologies and uses of major computational, information-based, and visualization innovations.
+                    </div>
                 </div>
 
                 <div class="col-xs-12 col-md-12">
@@ -947,6 +1199,21 @@
                             interdisciplinary peer-reviewed academic journal that aims to encourage and promote high-quality
                             scholarship on new theoretical or empirical results,  models and methods in the social sciences.
                             It solicits original papers with a spatial dimension that can be of interest to social scientists.</p>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-12" >
+                    <hr>
+                    <div class="col-md-3 col-xs-12"   >
+                        <a href="https://www.springer.com/journal/43762"><img class="img-responsive" th:src="@{/img/Journals/ComputationalUrbanScience.jpg}" ></a>
+                    </div>
+                    <div class="m-fsz col-md-9 col-xs-12 m-center"  >
+                        <strong><a href="https://www.springer.com/journal/43762">Computational Urban Science</a></strong><br>
+                        <p>
+                            <label class="stronglabel">ISSN</label>: 2730-6852<br>
+                            <!--                            <label class="stronglabel">Impact Factor</label>: 3.097 (2019) <br>-->
+                            <label class="stronglabel">Description</label>: Computational Urban Science publishes rigorously peer-reviewed and high-quality original articles and reviews that focus on the intersection of computational sciences and urban sciences in building intelligent and resilient cities. The journal aims to introduce the latest results in urban computing and its applications, examine both the spatial and social dimension of urban networks and built environment, promote the cooperation between computational disciplines and the urban domain sciences, and build a bridge for scientific communication.<br>
+                        </p>
                     </div>
                 </div>
 
@@ -1114,6 +1381,29 @@
 
 <script type="text/javascript" th:src="@{/ref/bootstrap/bootstrap.js}"></script>
 <script type="text/javascript" th:src="@{/js/index.js}"></script>
+<script>
+
+    function newsnav_click(obj){
+        $(".newsnav>li").each(function (){
+            // alert(this)
+            $($(this).hasClass("active")).hide();
+            $($(this).children("li").children('a').data("href")).hide();
+            $($(this).children('a').data("href")).hide();
+            $(this).removeClass("active");
+        })
+
+        $(obj).addClass("active");
+        $($(obj).children('a').data("href")).fadeIn();
+    }
+    function latestnews_click(obj){
+
+
+        $(".nav-item-events").trigger("click");
+        $("#2021news").trigger("click");
+
+        window.location.hash = $(obj).attr("data-href");
+    }
+</script>
 </html>
 
 
