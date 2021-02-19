@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:59349/Iguuser
+      uri: mongodb://localhost/Iguuser
   thymeleaf:
     cache: false
 
