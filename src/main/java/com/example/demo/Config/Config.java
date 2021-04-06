@@ -18,6 +18,7 @@ public class Config implements WebMvcConfigurer {
         registry.addViewController("/log.html").setViewName("log");
         registry.addViewController("/log").setViewName("log");
         registry.addViewController("/userspace").setViewName("userspace");
+        registry.addViewController("/userspace.html").setViewName("userspace");
         registry.addViewController("/memberspace.html").setViewName("memberspace");
         registry.addViewController("/memberspace").setViewName("memberspace");
     }
@@ -25,7 +26,10 @@ public class Config implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginHandler())
+                .addPathPatterns("/userspace")
+                .addPathPatterns("/userspace.html")
                 .addPathPatterns("/memberspace")
-                .addPathPatterns("/userspace").excludePathPatterns("/index.html","/","/user/login","/css/**","/doc/**","/font/**","/img/**","/js/**","/ref/**","/log.html","log");
+                .addPathPatterns("/memberspace.html")
+                .addPathPatterns("/userspace").excludePathPatterns("/index.html","/","/user/login","/css/**","/doc/**","/font/**","/img/**","/js/**","/ref/**");
     }
 }

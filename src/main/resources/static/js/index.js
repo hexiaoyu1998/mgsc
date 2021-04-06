@@ -43,6 +43,8 @@ function nav_click()
         nav_click();
         $("#Journals").fadeIn();
         console.log(this);
+        document.getElementsByTagName("title")[0].innerText=this.children[1].children[0].innerText.trim()+" - YGWG ";
+
     })
 
     $(".dropdown-menu>li").on("click",function (e) {
