@@ -128,7 +128,8 @@ function  jump(){
         }
         else{
 
-            $.post("https://formspree.io/f/mjvpojvk",
+            //mzy
+            $.post("https://formspree.io/f/mrgrprpw",
                 {
                     From :"igu-geomodeling.com",
                     Name : c_name,
@@ -138,6 +139,7 @@ function  jump(){
                 function () {
                     //
                 });
+            //lxt
             $.post("https://formspree.io/f/xdopdyoa",
                 {
                     From :"igu-geomodeling.com",
